@@ -226,7 +226,7 @@ while flag ==1:
         #for list in playFair:
         #    print(list)
         #print()
-        #print("*********************************")
+        print("*********************************")
         print("Your Decrypted Message is:")
         decoded = getDecodedMsg(message,playFair)
         print(decoded)
