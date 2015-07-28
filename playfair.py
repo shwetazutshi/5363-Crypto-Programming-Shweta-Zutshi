@@ -47,7 +47,8 @@ def cleanString(s,options = {'up':1,'reDupes':1,'reNonAlphaNum':1,'reSpaces':'_'
         if 'reDupes' in options:
 			#remove duplicate letters
             s= ''.join(sorted(set(s), key=s.index))
-			
+            
+		
         return s
         
 def generateSquare(key):
@@ -67,6 +68,10 @@ def generateSquare(key):
     
     #uppercase key (it meay be read from stdin, so we need to be sure)
     key = cleanString(key,{'up':1,'reSpaces':'','reNonAlphaNum':1,'reDupes':1})
+    
+    #replacing 'J' in key with 'I'
+    key = key.replace("J","I")
+    #print(key)
     
     #Load keyword into square
     for i in range(len(key)):
@@ -95,6 +100,9 @@ def getCodedMsg(message, playFair):
 	#clean the message
 	#making it uppercase, removing spaces and non-alphanumerics, splitting duplicate double letters with 'X'
 	message = cleanString(message,{'up':1,'reSpaces':'','reNonAlphaNum':1,'spLetters':1})
+	
+	#replacing 'J' in message with 'I'
+	message = message.replace("J","I")
 	
 	#if length of message is odd, add 'X' at the end
 	if len(message)%2 ==1:
@@ -194,14 +202,15 @@ while flag ==1:
         key = input()
         playFair = generateSquare(key)  
         print()
-        print("*********************************")
+        #print("*********************************")
         #for list in playFair:
         #    print(list)
         #print()
-        #print("*********************************")
+        print("*********************************")
         print("Your Encrypted Message is:")
         coded = getCodedMsg(message,playFair)
         print(coded)
+        print()
         print("*********************************")
         flag =0
     elif x == '2':
@@ -213,14 +222,15 @@ while flag ==1:
         key = input()
         playFair = generateSquare(key)  
         print()
-        print("*********************************")
+        #print("*********************************")
         #for list in playFair:
         #    print(list)
         #print()
-        #print("*********************************")
+        print("*********************************")
         print("Your Decrypted Message is:")
         decoded = getDecodedMsg(message,playFair)
         print(decoded)
+        print()
         print("*********************************")
         flag =0
     elif x == '3':
@@ -230,28 +240,3 @@ while flag ==1:
         print("Wrong Choice !!! Please enter again...")
         print("Enter 1 for Encryption, 2 for Decryption and 3 for Quit:")
         x = input()
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
