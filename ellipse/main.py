@@ -30,16 +30,21 @@ def main():
     x3 =0
     y3 =0
     print(a,b,x1,y1,x2,y2)
+	#validating the inputs
     e.checkInputs(x1,y1,a,b)
     e.checkInputs(x2,y2,a,b)
+	#finding the slope
     m = e.findSlope(x1,y1,x2,y2,a)
     print(m)
+	#finding the third point
     x3,y3 = e.findThirdPoint(m,x1,y1,x2)
     print(x3,y3)
+	#finding the maximum out of all values
     max1 = max(abs(x1),abs(y1),abs(x2),abs(y2),abs(x3),abs(y3))
-    
+	#width and height of plot
     w = max1 + 10
     h = max1 + 10
+	#plotting the graph
     e.plotCurve(w,h,x1,y1,x2,y2,m,x3,y3)
 
 if __name__ == '__main__':
