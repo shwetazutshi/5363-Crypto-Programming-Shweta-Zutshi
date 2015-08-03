@@ -13,10 +13,10 @@ def main():
 
     parser.add_argument("-a", dest="a", help="Part 'a' of elliptical curve: y^2 = x^3 + ax + b")
     parser.add_argument("-b", dest="b", help="Part 'b' of elliptical curve: y^2 = x^3 + ax + b")
-    parser.add_argument("-x1",dest="x1", help="")
-    parser.add_argument("-y1",dest="y1", help="")
-    parser.add_argument("-x2",dest="x2", help="")
-    parser.add_argument("-y2",dest="y2", help="")
+    parser.add_argument("-x1",dest="x1", help="x coordinate of point1")
+    parser.add_argument("-y1",dest="y1", help="y coordinate of point1")
+    parser.add_argument("-x2",dest="x2", help="x coordinate of point2")
+    parser.add_argument("-y2",dest="y2", help="y coordinate of point2")
 
     args = parser.parse_args()
 
@@ -37,7 +37,7 @@ def main():
     x3,y3 = e.findThirdPoint(m,x1,y1,x2)
     print(x3,y3)
     max1 = max(abs(x1),abs(y1),abs(x2),abs(y2),abs(x3),abs(y3))
-    print(max1)
+    
     w = max1 + 10
     h = max1 + 10
     e.plotCurve(w,h,x1,y1,x2,y2,m,x3,y3)
